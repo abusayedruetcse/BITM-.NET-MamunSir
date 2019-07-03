@@ -1,0 +1,36 @@
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.exe.config
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.exe
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.pdb
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.Properties.Resources.resources
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.SuperShopUi.resources
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.GenerateResource.cache
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.CoreCompileInputs.cache
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.exe
+D:\Shahadat\AssignedWork\WorkWithMamunSir06242019\Priority3\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.pdb
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.exe.config
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.exe
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.pdb
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csprojAssemblyReference.cache
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.Properties.Resources.resources
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.SuperShopUi.resources
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.GenerateResource.cache
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.CoreCompileInputs.cache
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.exe
+C:\Phase 2\Batch 3\Day15\Association Relationship\Association Relationship\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.pdb
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csprojAssemblyReference.cache
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.Properties.Resources.resources
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.SuperShopUi.resources
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.GenerateResource.cache
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.CoreCompileInputs.cache
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.exe
+C:\Users\Web App Develop .Net\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.pdb
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csprojAssemblyReference.cache
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.Properties.Resources.resources
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.SuperShopUi.resources
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.GenerateResource.cache
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.csproj.CoreCompileInputs.cache
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.exe
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\obj\Debug\SuperShopAppPractice3.pdb
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.exe.config
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.exe
+C:\Users\abusa\Desktop\BITM-Shirajul Islam Mamun Sir\Day15\Association Relationship\Practices\SuperShopAppPractice3\SuperShopAppPractice3\bin\Debug\SuperShopAppPractice3.pdb
