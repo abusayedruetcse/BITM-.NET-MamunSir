@@ -27,6 +27,7 @@ namespace SuperShopAppPractice3
                     break;
                 }
             } 
+
             if(!isDuplicate)
             {
                 products.Add(product);
