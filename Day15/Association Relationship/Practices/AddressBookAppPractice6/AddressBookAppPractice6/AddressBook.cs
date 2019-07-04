@@ -22,15 +22,24 @@ namespace AddressBookAppPractice6
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             if(SaveButton.Text.Equals("Save"))
             {
                 person = new Person();
                 person.FirstName = firstNameTextBox.Text;
                 person.LastName = lastNameTextBox.Text;
                 //person.Email = emailTextBox.Text;
+                foreach(Person aPerson in persons)
+                {
+                    if(aPerson.Email.Equals(emailTextBox.Text))
+                    {
+                        messageLabel.Text = "Email is Duplicate";
+                        return;
+                    }
+                }
                 if (person.SetEmail(emailTextBox.Text))
                 {
-                    MessageBox.Show("Enter a valid Email");
+                    messageLabel.Text = "Enter a valid Email";
                     return;
                 }
                 person.PhoneNo = phoneNoTextBox.Text;
@@ -61,6 +70,7 @@ namespace AddressBookAppPractice6
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             string email = editEmailTextBox.Text;
             foreach(Person aPerson in persons)
             {
@@ -77,9 +87,64 @@ namespace AddressBookAppPractice6
             }
             if(firstNameTextBox.Text.Equals(""))
             {
-                MessageBox.Show("Not found this person");
+                messageLabel.Text = "Not found this person";
             }
             
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            messageLabel.Text = "";
+            List<Person> personList = new List<Person>();
+            if(!String.IsNullOrEmpty(searchLastNameTextBox.Text))
+            {
+                personList = new List<Person>();
+                foreach (Person aPerson in persons)
+                {
+                    if(aPerson.LastName.Equals(searchLastNameTextBox.Text))
+                    {
+                        personList.Add(aPerson);
+                    }
+                }   
+                if(personList.Count==0)
+                {
+                    messageLabel.Text = "Not Found for this Last Name";
+                }
+            } 
+            if(!String.IsNullOrEmpty(searchEmailTextBox.Text))
+            {
+                personList = new List<Person>();
+                foreach(Person aPerson in persons)
+                {
+                    if(aPerson.Email.Equals(searchEmailTextBox.Text))
+                    {
+                        personList.Add(aPerson);
+                        break;
+                    }
+                }
+                if (personList.Count == 0)
+                {
+                    messageLabel.Text = "Not Found for this Email";
+                }
+            }
+            if (!String.IsNullOrEmpty(searchPhoneNoTextBox.Text))
+            {
+                personList = new List<Person>();
+                foreach (Person aPerson in persons)
+                {
+                    if (aPerson.PhoneNo.Equals(searchPhoneNoTextBox.Text))
+                    {
+                        personList.Add(aPerson);
+                        break;
+                    }
+                }
+                if (personList.Count == 0)
+                {
+                    messageLabel.Text = "Not Found for this Phone No.";
+                }
+            }
+            displayDataGridView.DataSource = personList;
+
         }
     }
 }
