@@ -55,6 +55,7 @@
             this.ShowDetailsButton.TabIndex = 10;
             this.ShowDetailsButton.Text = "Show Details";
             this.ShowDetailsButton.UseVisualStyleBackColor = true;
+            this.ShowDetailsButton.Click += new System.EventHandler(this.ShowDetailsButton_Click);
             // 
             // groupBox3
             // 

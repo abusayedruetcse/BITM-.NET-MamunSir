@@ -16,5 +16,11 @@ namespace StudentEntryAppExample2
         {
             InitializeComponent();
         }
+
+        private void ShowDetailsButton_Click(object sender, EventArgs e)
+        {
+            Person person = new Person("Abu", "Sayed", "Ahmad");
+            studentNameTextBox.Text = person.GetName();
+        }
     }
 }
