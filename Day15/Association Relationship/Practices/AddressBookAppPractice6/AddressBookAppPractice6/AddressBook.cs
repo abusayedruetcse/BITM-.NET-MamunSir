@@ -22,17 +22,36 @@ namespace AddressBookAppPractice6
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            person = new Person();
-            person.FirstName = firstNameTextBox.Text;
-            person.LastName = lastNameTextBox.Text;
-            //person.Email = emailTextBox.Text;
-            if(person.SetEmail(emailTextBox.Text))
+            if(SaveButton.Text.Equals("Save"))
             {
-                MessageBox.Show("Enter a valid Email");
-                return;
+                person = new Person();
+                person.FirstName = firstNameTextBox.Text;
+                person.LastName = lastNameTextBox.Text;
+                //person.Email = emailTextBox.Text;
+                if (person.SetEmail(emailTextBox.Text))
+                {
+                    MessageBox.Show("Enter a valid Email");
+                    return;
+                }
+                person.PhoneNo = phoneNoTextBox.Text;
+                persons.Add(person);
+            } 
+            else
+            {
+                foreach (Person aPerson in persons)
+                {
+                    if (aPerson.Email.Equals(emailTextBox.Text))
+                    {
+                        person = aPerson;                        
+                        break;
+                    }
+                }
+                person.FirstName=firstNameTextBox.Text ;
+                person.LastName = lastNameTextBox.Text;
+                person.PhoneNo = phoneNoTextBox.Text;
+                SaveButton.Text = "Save";
+                editEmailTextBox.Text = "";
             }
-            person.PhoneNo = phoneNoTextBox.Text;
-            persons.Add(person);
             //cleaning textbox
             firstNameTextBox.Text = "";
             lastNameTextBox.Text = "";
@@ -42,7 +61,7 @@ namespace AddressBookAppPractice6
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            string email = emailTextBox.Text;
+            string email = editEmailTextBox.Text;
             foreach(Person aPerson in persons)
             {
                 if(aPerson.Email.Equals(email))
@@ -52,6 +71,7 @@ namespace AddressBookAppPractice6
                     lastNameTextBox.Text = person.LastName;
                     emailTextBox.Text = person.Email;
                     phoneNoTextBox.Text = person.PhoneNo;
+                    SaveButton.Text = "Confirm";
                     break;
                 }
             }
@@ -59,6 +79,7 @@ namespace AddressBookAppPractice6
             {
                 MessageBox.Show("Not found this person");
             }
+            
         }
     }
 }
