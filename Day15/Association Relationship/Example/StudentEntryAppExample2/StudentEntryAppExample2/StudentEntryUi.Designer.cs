@@ -81,6 +81,7 @@
             this.StudentSaveButton.TabIndex = 7;
             this.StudentSaveButton.Text = "Save";
             this.StudentSaveButton.UseVisualStyleBackColor = true;
+            this.StudentSaveButton.Click += new System.EventHandler(this.StudentSaveButton_Click);
             // 
             // studentNameTextBox
             // 
@@ -152,6 +153,7 @@
             this.DepartmentSaveButton.TabIndex = 7;
             this.DepartmentSaveButton.Text = "Save";
             this.DepartmentSaveButton.UseVisualStyleBackColor = true;
+            this.DepartmentSaveButton.Click += new System.EventHandler(this.DepartmentSaveButton_Click);
             // 
             // departmentNameTextBox
             // 
