@@ -96,6 +96,7 @@
             this.WithdrawButton.Text = "Withdraw";
             this.WithdrawButton.UseVisualStyleBackColor = true;
             this.WithdrawButton.UseWaitCursor = true;
+            this.WithdrawButton.Click += new System.EventHandler(this.WithdrawButton_Click);
             // 
             // DepositeButton
             // 
@@ -106,6 +107,7 @@
             this.DepositeButton.Text = "Deposite";
             this.DepositeButton.UseVisualStyleBackColor = true;
             this.DepositeButton.UseWaitCursor = true;
+            this.DepositeButton.Click += new System.EventHandler(this.DepositeButton_Click);
             // 
             // label10
             // 
@@ -155,6 +157,7 @@
             this.ShowButton.Text = "Show Me Details";
             this.ShowButton.UseVisualStyleBackColor = true;
             this.ShowButton.UseWaitCursor = true;
+            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // label9
             // 
@@ -306,6 +309,7 @@
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.UseWaitCursor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // label4
             // 
