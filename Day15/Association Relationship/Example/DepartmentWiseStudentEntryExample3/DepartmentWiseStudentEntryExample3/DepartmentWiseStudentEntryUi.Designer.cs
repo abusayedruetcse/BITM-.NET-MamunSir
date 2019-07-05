@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dipartment2ComboBox = new System.Windows.Forms.ComboBox();
+            this.department2ComboBox = new System.Windows.Forms.ComboBox();
+            this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ShowButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.deprartmentComboBox = new System.Windows.Forms.ComboBox();
+            this.departmentComboBox = new System.Windows.Forms.ComboBox();
             this.StudentSaveButton = new System.Windows.Forms.Button();
             this.studentNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,13 +51,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dipartment2ComboBox);
+            this.groupBox2.Controls.Add(this.department2ComboBox);
             this.groupBox2.Controls.Add(this.ShowButton);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(17, 257);
@@ -65,13 +68,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Student List";
             // 
-            // dipartment2ComboBox
+            // department2ComboBox
             // 
-            this.dipartment2ComboBox.FormattingEnabled = true;
-            this.dipartment2ComboBox.Location = new System.Drawing.Point(112, 21);
-            this.dipartment2ComboBox.Name = "dipartment2ComboBox";
-            this.dipartment2ComboBox.Size = new System.Drawing.Size(262, 21);
-            this.dipartment2ComboBox.TabIndex = 11;
+            this.department2ComboBox.DataSource = this.departmentBindingSource;
+            this.department2ComboBox.DisplayMember = "Name";
+            this.department2ComboBox.FormattingEnabled = true;
+            this.department2ComboBox.Location = new System.Drawing.Point(112, 21);
+            this.department2ComboBox.Name = "department2ComboBox";
+            this.department2ComboBox.Size = new System.Drawing.Size(262, 21);
+            this.department2ComboBox.TabIndex = 11;
+            this.department2ComboBox.ValueMember = "Code";
+            this.department2ComboBox.Click += new System.EventHandler(this.department2ComboBox_Click);
+            // 
+            // departmentBindingSource
+            // 
+            this.departmentBindingSource.DataSource = typeof(DepartmentWiseStudentEntryExample3.Department);
             // 
             // ShowButton
             // 
@@ -81,6 +92,7 @@
             this.ShowButton.TabIndex = 10;
             this.ShowButton.Text = "Show";
             this.ShowButton.UseVisualStyleBackColor = true;
+            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // label5
             // 
@@ -93,7 +105,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.deprartmentComboBox);
+            this.groupBox3.Controls.Add(this.departmentComboBox);
             this.groupBox3.Controls.Add(this.StudentSaveButton);
             this.groupBox3.Controls.Add(this.studentNameTextBox);
             this.groupBox3.Controls.Add(this.label3);
@@ -109,13 +121,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Student Info";
             // 
-            // deprartmentComboBox
+            // departmentComboBox
             // 
-            this.deprartmentComboBox.FormattingEnabled = true;
-            this.deprartmentComboBox.Location = new System.Drawing.Point(113, 103);
-            this.deprartmentComboBox.Name = "deprartmentComboBox";
-            this.deprartmentComboBox.Size = new System.Drawing.Size(262, 21);
-            this.deprartmentComboBox.TabIndex = 9;
+            this.departmentComboBox.DataSource = this.departmentBindingSource;
+            this.departmentComboBox.DisplayMember = "Name";
+            this.departmentComboBox.FormattingEnabled = true;
+            this.departmentComboBox.Location = new System.Drawing.Point(113, 103);
+            this.departmentComboBox.Name = "departmentComboBox";
+            this.departmentComboBox.Size = new System.Drawing.Size(262, 21);
+            this.departmentComboBox.TabIndex = 9;
+            this.departmentComboBox.ValueMember = "Code";
+            this.departmentComboBox.Click += new System.EventHandler(this.departmentComboBox_Click);
             // 
             // StudentSaveButton
             // 
@@ -125,6 +141,7 @@
             this.StudentSaveButton.TabIndex = 7;
             this.StudentSaveButton.Text = "Save";
             this.StudentSaveButton.UseVisualStyleBackColor = true;
+            this.StudentSaveButton.Click += new System.EventHandler(this.StudentSaveButton_Click);
             // 
             // studentNameTextBox
             // 
@@ -205,6 +222,7 @@
             this.DepartmentSaveButton.TabIndex = 7;
             this.DepartmentSaveButton.Text = "Save";
             this.DepartmentSaveButton.UseVisualStyleBackColor = true;
+            this.DepartmentSaveButton.Click += new System.EventHandler(this.DepartmentSaveButton_Click);
             // 
             // departmentNameTextBox
             // 
@@ -250,6 +268,7 @@
             this.Text = "Department Wise Student Entry";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -261,11 +280,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox dipartment2ComboBox;
+        private System.Windows.Forms.ComboBox department2ComboBox;
         private System.Windows.Forms.Button ShowButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox deprartmentComboBox;
+        private System.Windows.Forms.ComboBox departmentComboBox;
         private System.Windows.Forms.Button StudentSaveButton;
         private System.Windows.Forms.TextBox studentNameTextBox;
         private System.Windows.Forms.Label label3;
@@ -280,6 +299,7 @@
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource departmentBindingSource;
     }
 }
 
