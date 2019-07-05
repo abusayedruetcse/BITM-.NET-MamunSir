@@ -32,6 +32,7 @@ namespace DepartmentWiseStudentEntryExample3
         private void StudentSaveButton_Click(object sender, EventArgs e)
         {
             Student student = new Student();
+            Department department = new Department();
             student.RegNo = regNoTextBox.Text;
             student.Name = studentNameTextBox.Text;
             student.Email = emailTextBox.Text;
@@ -40,17 +41,32 @@ namespace DepartmentWiseStudentEntryExample3
             {
                 if(aDepartment.Code.Equals(departmentComboBox.SelectedValue))
                 {
-                    if(aDepartment.AddStudent(student))
-                    {
-                        regNoTextBox.Text = "";
-                        studentNameTextBox.Text = "";
-                        emailTextBox.Text = "";
-                        departmentComboBox.Text = "";
-                    }
+                    department = aDepartment;                    
                     break;
                 }
             }
-
+            //duplicate checking 
+            bool isRegNoDuplicate = false;
+            foreach(Student aStudent in department.GetStudents())
+            {
+                if(student.RegNo.Equals(regNoTextBox.Text))
+                {
+                    isRegNoDuplicate = true;
+                    break;
+                }
+            }
+            if(isRegNoDuplicate)
+            {
+                MessageBox.Show("Reg. No is Duplicate");
+                return;
+            }
+            if (department.AddStudent(student))
+            {
+                regNoTextBox.Text = "";
+                studentNameTextBox.Text = "";
+                emailTextBox.Text = "";
+                departmentComboBox.Text = "";
+            }
         }
 
         private void departmentComboBox_Click(object sender, EventArgs e)

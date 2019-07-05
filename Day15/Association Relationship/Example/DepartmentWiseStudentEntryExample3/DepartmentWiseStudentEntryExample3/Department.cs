@@ -44,6 +44,6 @@ namespace DepartmentWiseStudentEntryExample3
         public List<Student> GetStudents()
         {
             return students;
-        }
+        } 
     }
 }
