@@ -35,30 +35,32 @@ namespace DepartmentWiseStudentEntryExample3
             Department department = new Department();
             student.RegNo = regNoTextBox.Text;
             student.Name = studentNameTextBox.Text;
-            student.Email = emailTextBox.Text;
-            
-            foreach(Department aDepartment in departments)
-            {
-                if(aDepartment.Code.Equals(departmentComboBox.SelectedValue))
-                {
-                    department = aDepartment;                    
-                    break;
-                }
-            }
+            student.Email = emailTextBox.Text;                      
             //duplicate checking 
             bool isRegNoDuplicate = false;
-            foreach(Student aStudent in department.GetStudents())
+            foreach(Department aDepartment in departments)
             {
-                if(student.RegNo.Equals(regNoTextBox.Text))
+                foreach (Student aStudent in aDepartment.GetStudents())
                 {
-                    isRegNoDuplicate = true;
-                    break;
+                    if (student.RegNo.Equals(regNoTextBox.Text))
+                    {
+                        isRegNoDuplicate = true;
+                        break;
+                    }
                 }
             }
             if(isRegNoDuplicate)
             {
                 MessageBox.Show("Reg. No is Duplicate");
                 return;
+            }
+            foreach (Department aDepartment in departments)
+            {
+                if (aDepartment.Code.Equals(departmentComboBox.SelectedValue))
+                {
+                    department = aDepartment;
+                    break;
+                }
             }
             if (department.AddStudent(student))
             {
