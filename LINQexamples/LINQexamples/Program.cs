@@ -22,7 +22,9 @@ namespace LINQexamples
             //Display(products);
             //SelectAll(products);
             //UsingWhereMethod(products);
-            LINQ101ProjectionSelect(products);
+            //LINQ101ProjectionSelect(products);
+            //LINQ101GroupingGroupBy(products);
+            LINQ101Element(products);
             Console.ReadKey();
         }
         static private void Display(dynamic products)
@@ -62,8 +64,10 @@ namespace LINQexamples
             Console.WriteLine("orderby p.Name\n\n");
             var orderbyProductList = from p in products
                                      where p.Price > 0 && p.Price < 5001
-                                     orderby p.Name
+                                     orderby p.Name                                     
                                      //orderby p.Name,p.Price
+                                     //orderby p.Name descending
+                                     //orderby p.Name,p.Price descending                                   
                                      select p;
             Display(orderbyProductList);
             //5.group by p.Name
@@ -138,8 +142,10 @@ namespace LINQexamples
             Console.WriteLine("4.orderby p.Name\n\n");
             var orderbyProductList = products
                                           .Where(p => p.Price > 0 && p.Price < 5001)
-                                          .OrderByDescending(p => p.Name)
-                                          .Select(p=>p);                                 
+                                          .OrderBy(p => p.Name)
+                                          //.OrderByDescending(p => p.Name)                                          
+                                          .Select(p=>p);
+                                          //.Reverse()
             Display(orderbyProductList);
             //5.group by p.Name
             Console.WriteLine("5.group by p.Name\n\n");
@@ -224,6 +230,67 @@ namespace LINQexamples
                 Console.WriteLine("Brand: {0},Product: {1},Price: {2}\n", bp.Brand, bp.Product, bp.Price);
             }
 
+        }
+        static private void LINQ101GroupingGroupBy(List<Product> products)
+        {
+            //1.Group by %5
+            Console.WriteLine("1.Group by %5\n\n");
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var numberGroups =
+                from n in numbers
+                group n by n % 5 into g
+                select new { Remainder = g.Key, Numbers = g };
+
+            foreach (var g in numberGroups)
+            {
+                Console.WriteLine("Numbers with a remainder of {0} when divided by 5:", g.Remainder);
+                foreach (var n in g.Numbers)
+                {
+                    Console.WriteLine(n);
+                }
+            }
+            //2. Group by first letter of products.
+            Console.WriteLine("2. Group by first letter of products.\n\n");
+            var firstLetterBasedProductList = from p in products
+                                              group p by p.Name[0] into g
+                                              orderby g.Key 
+                                              select new { key = g.Key, Products = g.ToList() };
+
+            foreach (var g in firstLetterBasedProductList)
+            {
+                Console.WriteLine("Key: " + g.key);
+                foreach (var pg in g.Products)
+                {
+                    Console.WriteLine("\t\tId: " + pg.Id + " Name: " + pg.Name + " Price: " + pg.Price + Environment.NewLine);
+                }
+            }
+        }
+        static private void LINQ101Element(List<Product> products)
+        {
+            //1. First Simple/Condition
+            Console.WriteLine("1. First Simple/Condition\n\n");
+            var firstProduct = products
+                                    .Where(p => p.Price > 2000)
+                                    .Select(p => p)
+                                    .First();
+                                    //.First(p=>p.Id>4);
+            Console.WriteLine("Id: " + firstProduct.Id + " Name: " + firstProduct.Name + " Price: " + firstProduct.Price + Environment.NewLine);
+            
+            //2. FirstOrDefault
+            Console.WriteLine("2. FirstOrDefault\n\n");    //if not found then assign relevant default value.
+            var firstOrDefaultProduct = products
+                                             .FirstOrDefault();
+                                             //.FirstOrDefault(p=>p.Name.Contains("B"));
+            Console.WriteLine("Id: " + firstOrDefaultProduct.Id + " Name: " + firstOrDefaultProduct.Name + " Price: " + firstOrDefaultProduct.Price + Environment.NewLine);
+
+            //3. ElementAt(position_index)
+            Console.WriteLine("3. ElementAt(position_index)\n\n");
+            var elementAtProduct = products
+                                          .Where(p => p.Price > 2000)
+                                          .Select(p => p)
+                                          .ElementAt(1);    //start from 0-index        
+            Console.WriteLine("Id: " + elementAtProduct.Id + " Name: " + elementAtProduct.Name + " Price: " + elementAtProduct.Price + Environment.NewLine);
         }
 
 
