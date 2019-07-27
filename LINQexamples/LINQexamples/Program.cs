@@ -206,11 +206,24 @@ namespace LINQexamples
             var brandsProductsList = from b in brands
                                      from p in b.Products
                                      where p.Price < 1500
+                                     //where o.OrderDate >= new DateTime(1998, 1, 1) this can be used.
                                      select new { Brand = b.Name, Product = p.Name, Price = p.Price };
             foreach(var bp in brandsProductsList)
             {
                 Console.WriteLine("Brand: {0},Product: {1},Price: {2}\n",bp.Brand,bp.Product,bp.Price);
             }
+            //6. Multiple from clause
+            Console.WriteLine("6. Multiple from clause\n\n");
+            var productFromFilteredBrandList = from b in brands
+                                               where b.Name.Contains("RFL")
+                                               from p in b.Products
+                                               where p.Price > 1500
+                                               select new { Brand = b.Name, Product = p.Name, Price = p.Price };
+            foreach (var bp in productFromFilteredBrandList)
+            {
+                Console.WriteLine("Brand: {0},Product: {1},Price: {2}\n", bp.Brand, bp.Product, bp.Price);
+            }
+
         }
 
 
