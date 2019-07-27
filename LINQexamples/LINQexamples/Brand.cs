@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace LINQexamples
 {
-    public class Product
+    public class Brand
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public List<Product> Products { get; set; }
+        public Brand()
+        {
+            Products = new List<Product>();
+        }
     }
 }

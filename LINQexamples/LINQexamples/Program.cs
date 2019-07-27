@@ -193,6 +193,24 @@ namespace LINQexamples
                                       where p.Id == index
                                       select p;
             Display(TwoTableCombineList);
+            //5. Combine two relational table
+            Console.WriteLine("5. Combine two relational table\n\n");
+            var brands = new List<Brand>()
+            {
+                new Brand(){ Name="ACI",Products=products},
+                new Brand(){ Name="Partex",Products=products},
+                new Brand(){ Name="RFL",Products=products},
+                new Brand(){ Name="Amazon",Products=products}
+            };
+
+            var brandsProductsList = from b in brands
+                                     from p in b.Products
+                                     where p.Price < 1500
+                                     select new { Brand = b.Name, Product = p.Name, Price = p.Price };
+            foreach(var bp in brandsProductsList)
+            {
+                Console.WriteLine("Brand: {0},Product: {1},Price: {2}\n",bp.Brand,bp.Product,bp.Price);
+            }
         }
 
 
