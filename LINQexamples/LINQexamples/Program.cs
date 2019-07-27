@@ -20,7 +20,8 @@ namespace LINQexamples
                 new Product(){Id=6,Name="Bed",Price=2000}
             };
             //Display(products);
-            SelectAll(products);
+            //SelectAll(products);
+            UsingWhereMethod(products);
             Console.ReadKey();
         }
         static private void Display(dynamic products)
@@ -91,6 +92,68 @@ namespace LINQexamples
                 foreach (var product in g.Products)
                 {
                     Console.WriteLine("\t\tId: " + product.Id + " Name: " + product.Name + " Price: " + product.Price + Environment.NewLine);
+                }
+            }
+        }
+        static private void UsingWhereMethod(List<Product> products)
+        {
+            //using Where method of LINQ with Array or List
+            //0. select all
+            Console.WriteLine("0. select all\n\n");
+            var allProduct = products;
+            Display(allProduct);
+
+            //1. select p
+            Console.WriteLine("1. select p\n\n");
+            var selectedProductList = products
+                                            .Where(p => p.Price > 1000 & p.Price < 3000);                                           
+            Display(selectedProductList);
+            //   Another way 
+            Console.WriteLine("1. Another way \n\n");
+            var selectedProductAnotherList = products
+                                            .Where(p => p.Price > 1000 & p.Price < 3000)
+                                            .Select(p => p);
+            Display(selectedProductAnotherList);
+
+            //2.select p.Name
+            Console.WriteLine("2.select p.Name\n\n");
+            var selectedProductNameList = products
+                                                .Where(p => p.Price > 1000 & p.Price < 3000)
+                                                .Select(p => p.Name);
+            foreach (var p in selectedProductNameList)
+            {
+                Console.WriteLine(" Name: " + p + Environment.NewLine);
+            }
+            //3.select anonymous obj
+            Console.WriteLine("select anonymous obj\n\n");
+            var selectedProductAnonymousList = products
+                                                    .Where(p => p.Price > 1000 & p.Price < 3000)
+                                                    .Select(p=> new { Name = p.Name, Price = Convert.ToInt32(p.Price) - 50 });                                              
+            foreach (var p in selectedProductAnonymousList)
+            {
+                Console.WriteLine("Name: " + p.Name + " Offered Price: " + p.Price + Environment.NewLine);
+            }
+            //4.orderby p.Name
+            Console.WriteLine("4.orderby p.Name\n\n");
+            var orderbyProductList = products
+                                          .Where(p => p.Price > 0 & p.Price < 5001)
+                                          .OrderByDescending(p => p.Name)
+                                          .Select(p=>p);                                 
+            Display(orderbyProductList);
+            //5.group by p.Name
+            Console.WriteLine("5.group by p.Name\n\n");
+            var groupbyNameProductList = products
+                                              .Where(p => p.Price > 0 & p.Price < 5001)
+                                              .GroupBy(p => p.Name)
+                                              .OrderBy(p => p.Key)
+                                              //.Select(p=>p)
+                                              ;          
+            foreach (var g in groupbyNameProductList)
+            {
+                Console.WriteLine("Name: " + g.Key);
+                foreach (var pg in g)
+                {
+                    Console.WriteLine("\t\tId: " + pg.Id + " Name: " + pg.Name + " Price: " + pg.Price + Environment.NewLine);
                 }
             }
         }
