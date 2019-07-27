@@ -18,7 +18,8 @@ namespace LINQexamples
                 new Product(){Id=4,Name="Door",Price=5000},
                 new Product(){Id=5,Name="Window",Price=3500}
             };
-            Display(products);
+            //Display(products);
+            SelectAll(products);
             Console.ReadKey();
         }
         static private void Display(dynamic products)
@@ -27,6 +28,13 @@ namespace LINQexamples
             {
                 Console.WriteLine("Id: " + product.Id + " Name: " + product.Name + " Price: " + product.Price + Environment.NewLine);
             }
+        }
+        static private void SelectAll(object products)
+        {
+            var selectedProductList = from p in (List<Product>)products
+                                      where p.Price > 1000 & p.Price < 3000
+                                      select p;
+            Display(selectedProductList);
         }
 
     }
