@@ -26,7 +26,8 @@ namespace LINQexamples
             //LINQ101GroupingGroupBy(products);
             //LINQ101Element(products);
             //LINQ101Quantifiers(products);
-            LINQ101AggregateOperators(products);
+            //LINQ101AggregateOperators(products);
+            LINQ101ConversionOperators(products);
             Console.ReadKey();
         }
         static private void Display(dynamic products)
@@ -347,6 +348,7 @@ namespace LINQexamples
         static private void LINQ101AggregateOperators(List<Product> products)
         {
             int[] numbers = { 2, 2, 3, 5, 5 ,5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
             //1. Count: Simple- Conditional- Grouped
             Console.WriteLine("1. Count: Simple- Conditional- Grouped\n\n");
             var totalDistinctNumbers = numbers
@@ -398,6 +400,30 @@ namespace LINQexamples
                 Display(g.CriticalElements);
             }
 
+        }
+        static private void LINQ101ConversionOperators(List<Product> products)
+        {
+            var productList = from p in products
+                              where p.Price > 500
+                              select p;
+            var toArray = productList.ToArray();
+            var toList = productList.ToList();
+            var toDictonary = productList.ToDictionary(x=>x.Id);
+            //1. Conversion To Array 
+            Console.WriteLine("1. Conversion To Array \n\n");
+            for(int i=0; i<toArray.Length; i++)
+            {
+                Console.WriteLine("Name: " + toArray[i].Name + Environment.NewLine);
+            }
+            //2. Conversion To List 
+            Console.WriteLine("1. Conversion To List \n\n");
+            for (int i = 0; i < toList.Count; i++)
+            {
+                Console.WriteLine("Name: " + toList[i].Name + Environment.NewLine);
+            }
+            //3. Conversion To Dictionary 
+            Console.WriteLine("1. Conversion To Dictionary \n\n");      
+            Console.WriteLine(toDictonary[3].Name+ Environment.NewLine);
         }
 
 
