@@ -24,7 +24,8 @@ namespace LINQexamples
             //UsingWhereMethod(products);
             //LINQ101ProjectionSelect(products);
             //LINQ101GroupingGroupBy(products);
-            LINQ101Element(products);
+            //LINQ101Element(products);
+            LINQ101Quantifiers(products);
             Console.ReadKey();
         }
         static private void Display(dynamic products)
@@ -291,6 +292,56 @@ namespace LINQexamples
                                           .Select(p => p)
                                           .ElementAt(1);    //start from 0-index        
             Console.WriteLine("Id: " + elementAtProduct.Id + " Name: " + elementAtProduct.Name + " Price: " + elementAtProduct.Price + Environment.NewLine);
+        }
+        static private void LINQ101Quantifiers(List<Product> products)
+        {
+            //1. Any Simple
+            Console.WriteLine("1. Any Simple\n\n");
+            bool isExist = products
+                                //.Any();                        //without condition
+                                .Any(p => p.Price == 200);   //with condition
+            if(isExist)
+            {
+                Console.WriteLine("There exists\n");
+            } 
+            else
+            {
+                Console.WriteLine("NO exists\n");
+            }
+            //2. Any Grouply   
+            Console.WriteLine("2. Any Grouply  \n\n");
+            var productGroups = from p in products
+                                group p by p.Name into g
+                                where g.Any(q => q.Name.Contains("d"))
+                                select new { Key = g.Key, Products = g.ToList() };
+            foreach(var g in productGroups)
+            {
+                Console.WriteLine("Key: " + g.Key);
+                Display(g.Products);
+            }
+            //3. All Simple 
+            Console.WriteLine("3. All Simple \n\n");
+            bool isAllValid = products
+                                   .All(p => p.Price > 200);
+            if (isAllValid)
+            {
+                Console.WriteLine("Yes All valid\n");
+            }
+            else
+            {
+                Console.WriteLine("NO all valid\n");
+            }
+            //4. All Grouply
+            Console.WriteLine("4. All Grouply\n\n");
+            var productGroupAll = from p in products
+                                  group p by p.Name into g
+                                  where g.All(p => p.Price > 500)
+                                  select new { key = g.Key, Products = g.ToList() };
+            foreach (var g in productGroupAll)
+            {
+                Console.WriteLine("Key: " + g.key);
+                Display(g.Products);
+            }
         }
 
 
