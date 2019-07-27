@@ -25,7 +25,8 @@ namespace LINQexamples
             //LINQ101ProjectionSelect(products);
             //LINQ101GroupingGroupBy(products);
             //LINQ101Element(products);
-            LINQ101Quantifiers(products);
+            //LINQ101Quantifiers(products);
+            LINQ101AggregateOperators(products);
             Console.ReadKey();
         }
         static private void Display(dynamic products)
@@ -342,6 +343,61 @@ namespace LINQexamples
                 Console.WriteLine("Key: " + g.key);
                 Display(g.Products);
             }
+        }
+        static private void LINQ101AggregateOperators(List<Product> products)
+        {
+            int[] numbers = { 2, 2, 3, 5, 5 ,5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //1. Count: Simple- Conditional- Grouped
+            Console.WriteLine("1. Count: Simple- Conditional- Grouped\n\n");
+            var totalDistinctNumbers = numbers
+                                            .Distinct()
+                                            //.Count();    //simple   
+                                            .Count(n=>n%2==1); //conditional
+            Console.WriteLine("Total Distinct Product: " + totalDistinctNumbers+Environment.NewLine);
+            var countGroupProduct = from p in products
+                                    group p by p.Name into g
+                                    select new { key = g.Key, NoOfProducts = g.Count() }; //grouped
+            foreach(var g in countGroupProduct)
+            {
+                Console.WriteLine("Key: " + g.key +"  NoOfProducts: "+g.NoOfProducts+ Environment.NewLine);                
+            }
+            //2. Sum/Min/Max/Average: Simple-Projection-Group
+            Console.WriteLine("2. Sum: Simple-Projection-Group\n\n");
+            var sumNumbers = numbers
+                                    //.Sum(); //simple
+                                    //.Min();
+                                    //.Max();
+                                    .Average();
+            Console.WriteLine("Sum/Min/Max/Average: " + sumNumbers + Environment.NewLine);
+            var sumPrice = products
+                                //.Sum(p => p.Price); //projection
+                                //.Min(p => p.Price);
+                                //.Max(p => p.Price);
+                                .Average(p => p.Price);
+            Console.WriteLine("Sum/Min/Max/Average of Price: " + sumPrice + Environment.NewLine);
+            var sumPriceGrouply = from p in products
+                                  group p by p.Name into g
+                                  //select new { key = g.Key, GroupTotalPrice = g.Sum(p => p.Price) }; //grouped
+                                  //select new { key = g.Key, GroupTotalPrice = g.Min(p => p.Price) };
+                                  //select new { key = g.Key, GroupTotalPrice = g.Max(p => p.Price) };
+                                  select new { key = g.Key, GroupTotalPrice = g.Average(p => p.Price) };
+            foreach (var g in sumPriceGrouply)
+            {
+                Console.WriteLine("Key: " + g.key + "  ProductPriceSum/Min/Max/Average: " + g.GroupTotalPrice + Environment.NewLine);
+            }
+            //3. Max-Min Elements
+            Console.WriteLine("3. Max-Min Elements\n\n");
+            var criticalProductsInGroup = from p in products
+                                          group p by p.Name into g
+                                          //let criticalPrice = g.Max(p => p.Price)
+                                          let criticalPrice = g.Min(p => p.Price)
+                                          select new { key = g.Key, CriticalElements = g.Where(p => p.Price == criticalPrice) };
+            foreach(var g in criticalProductsInGroup)
+            {
+                Console.WriteLine("Key: " + g.key + Environment.NewLine);
+                Display(g.CriticalElements);
+            }
+
         }
 
 
